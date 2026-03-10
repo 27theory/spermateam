@@ -715,12 +715,14 @@
       backdrop-filter: blur(8px);
       z-index: 1000;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       padding: 2rem;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
     .modal-overlay.active {
       opacity: 1;
@@ -735,6 +737,7 @@
       clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
       transform: translateY(30px);
       transition: transform 0.3s;
+      margin: auto;
     }
     .modal-overlay.active .modal { transform: translateY(0); }
 
