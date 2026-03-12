@@ -40,29 +40,10 @@
       color: var(--text);
       font-family: 'Roboto Condensed', sans-serif;
       overflow-x: hidden;
-      cursor: none;
+      cursor: crosshair;
     }
 
     .highlight-video video { cursor: auto; }
-
-    #custom-cursor {
-      position: fixed;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-    }
-    #custom-cursor svg {
-      width: 20px;
-      height: 20px;
-      filter: drop-shadow(0 0 2px #00e5ff) drop-shadow(0 0 6px rgba(0,229,255,0.7)) drop-shadow(0 0 12px rgba(0,229,255,0.3));
-      opacity: 0.85;
-    }
-    body.cursor-pointer #custom-cursor svg {
-      width: 22px;
-      height: 22px;
-      filter: drop-shadow(0 0 3px #00e5ff) drop-shadow(0 0 8px rgba(0,229,255,0.9)) drop-shadow(0 0 16px rgba(0,229,255,0.5));
-      opacity: 1;
-    }
 
     /* ---- SCANLINES OVERLAY ---- */
     body::before {
@@ -1313,16 +1294,6 @@
 <body>
 
   <!-- CUSTOM CURSOR -->
-  <div id="custom-cursor">
-    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="14" y1="5" x2="14" y2="11" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="14" y1="17" x2="14" y2="23" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="5" y1="14" x2="11" y2="14" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="17" y1="14" x2="23" y2="14" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="14" cy="14" r="1.5" fill="#00e5ff"/>
-    </svg>
-  </div>
-
   <!-- NAV -->
   <nav>
     <div class="nav-logo">ST //</div>
@@ -1968,18 +1939,6 @@
     }, { threshold: 0.3 });
     const aboutSection = document.getElementById('about');
     if (aboutSection) terminalObserver.observe(aboutSection);
-
-    // custom cursor
-    const cursor = document.getElementById('custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
-    });
-    document.querySelectorAll('a, button, [onclick], .player-card, .social-card, .highlight-card').forEach(el => {
-      el.style.cursor = 'none';
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-pointer'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-pointer'));
-    });
   </script>
 
 </body>
