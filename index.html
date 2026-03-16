@@ -1450,12 +1450,13 @@
         <div class="click-hint">// НАЖМИ ДЛЯ ПОДРОБНОСТЕЙ</div>
       </div>
 
-      <!-- SUB 2 — пустая карточка -->
-      <div class="player-card" style="opacity: 0.35; cursor: default;">
-        <div class="player-number" style="color: rgba(255,255,255,0.04);">S2</div>
-        <div class="player-avatar" style="border-color: rgba(255,255,255,0.05); color: rgba(255,255,255,0.1);">?</div>
-        <div class="player-role" style="color: var(--dim);">SUBSTITUTE</div>
-        <div class="player-name" style="color: rgba(255,255,255,0.15);">[ СКОРО ]</div>
+      <!-- SUB 2 — newgen -->
+      <div class="player-card" onclick="openModal('newgen')">
+        <div class="player-number">S2</div>
+        <img src="https://raw.githubusercontent.com/27theory/spermateam/main/img/newgen.jpg" class="player-avatar" alt="newgen"/>
+        <div class="player-role">SUBSTITUTE</div>
+        <div class="player-name">@ньюген</div>
+        <div class="click-hint">// НАЖМИ ДЛЯ ПОДРОБНОСТЕЙ</div>
       </div>
 
     </div>
@@ -1508,6 +1509,7 @@
               <div class="terminal-line"><span class="key">04</span> <span class="accent">VIBEOWL</span>     <span class="val">SUPPORT</span></div>
               <div class="terminal-line"><span class="key">05</span> <span class="accent">АФОНЯ РЕКОРДС</span>  <span class="val">LURKER</span></div>
               <div class="terminal-line"><span class="key">S1</span> <span style="color:var(--dim);">SLOWEYES</span>    <span style="color:var(--dim);">SUBSTITUTE</span></div>
+              <div class="terminal-line"><span class="key">S2</span> <span style="color:var(--dim);">@ньюген</span>     <span style="color:var(--dim);">SUBSTITUTE</span></div>
               <div class="terminal-line">&nbsp;</div>
             </div>
             <div id="t-line3" style="display:none;"><div class="terminal-line"><span style="color:var(--dim);">sperma@team:~$</span> <span id="t-cmd3"></span><span class="terminal-cursor" id="t-cur3"></span></div></div>
@@ -1564,7 +1566,7 @@
           </video>
         </div>
         <div class="highlight-info">
-          <div class="highlight-player-tag">// MZOMBI3</div>
+          <div class="highlight-player-tag">// МАРМЕЛАДНЫЙ ЗОМБИ</div>
           <div class="highlight-title">ХАЙЛАЙТ</div>
         </div>
       </div>
@@ -1757,6 +1759,17 @@
         weapon: 'SSG-08',
         bio: 'Обычный поцан который любит сво их радных 💪☺️',
         steamId: '76561198992114038',
+      },
+      'newgen': {
+        name: '@ньюген',
+        role: 'SUBSTITUTE',
+        badge: '// ЗАПАСНОЙ #S2',
+        avatar: 'https://raw.githubusercontent.com/27theory/spermateam/main/img/newgen.jpg',
+        age: '17',
+        map: 'DUST 2',
+        weapon: 'M4A1-S',
+        bio: 'Я доедаю за тевиком — репощу весь саундклауд в тик токе как ебаный долбаеб. И у меня был биф с юрилброуком.',
+        steamId: '76561199663402868',
       },
     };
 
