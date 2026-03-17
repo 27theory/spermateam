@@ -46,189 +46,6 @@
 
     .highlight-video video { cursor: auto; }
 
-    /* ---- HIGHLIGHTS FULLSCREEN OVERLAY ---- */
-    #hl-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    #hl-modal.hl-open {
-      opacity: 1;
-      pointer-events: all;
-    }
-    #hl-bg-scan {
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,229,255,0.015) 2px,
-        rgba(0,229,255,0.015) 4px
-      );
-      pointer-events: none;
-      z-index: 0;
-    }
-    #hl-grid-bg {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-      z-index: 0;
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-    }
-    #hl-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 6rem 2rem 4rem;
-      transform: translateY(30px);
-      transition: transform 0.4s ease;
-    }
-    #hl-modal.hl-open #hl-inner {
-      transform: translateY(0);
-    }
-    #hl-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    #hl-modal-tag {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 4px;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-    #hl-modal-name {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      letter-spacing: 6px;
-      color: #fff;
-      line-height: 1;
-    }
-    #hl-close-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--dim);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      padding: 0.5rem 1rem;
-      cursor: crosshair;
-      transition: color 0.2s, border-color 0.2s;
-      flex-shrink: 0;
-      margin-top: 6px;
-      user-select: none;
-    }
-    #hl-close-btn:hover { color: var(--accent); border-color: var(--accent); }
-    #hl-modal-videos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* ---- HIGHLIGHT MODAL VIDEO ---- */
-    .hl-video-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: hlVideoIn 0.4s forwards;
-    }
-    .hl-video-block:nth-child(2) { animation-delay: 0.1s; }
-    .hl-video-block:nth-child(3) { animation-delay: 0.2s; }
-    @keyframes hlVideoIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hl-video-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 3px;
-      color: var(--dim);
-    }
-    .hl-video-block video {
-      width: 100%;
-      aspect-ratio: 16/9;
-      border: 1px solid var(--border);
-      display: block;
-      background: #000;
-      object-fit: contain;
-    }
-
-    /* ---- SCANLINES OVERLAY ---- */
-    .hl-player-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 1.5rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.7rem;
-      cursor: crosshair;
-      transition: border-color 0.3s, transform 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .hl-player-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-    .hl-player-card:hover { border-color: rgba(255,0,60,0.4); transform: translateY(-4px); }
-    .hl-player-card:hover::before { transform: scaleX(1); }
-    .hl-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-    }
-    .hl-nick {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 3px;
-      color: #fff;
-    }
-    .hl-count {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 2px;
-      color: var(--accent);
-    }
-
-    /* ---- HIGHLIGHT MODAL VIDEO ---- */
-    .hl-video-block { display: flex; flex-direction: column; gap: 0.5rem; }
-    .hl-video-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 3px;
-      color: var(--dim);
-    }
-    .hl-video-block video { width: 100%; border: 1px solid var(--border); display: block; }
-
     /* ---- SCANLINES OVERLAY ---- */
     body::before {
       content: '';
@@ -1709,22 +1526,6 @@
     </div>
   </section>
 
-  <!-- HIGHLIGHTS FULLSCREEN -->
-  <div id="hl-modal">
-    <div id="hl-bg-scan"></div>
-    <div id="hl-grid-bg"></div>
-    <div id="hl-inner">
-      <div id="hl-header">
-        <div>
-          <div id="hl-modal-tag"></div>
-          <div id="hl-modal-name"></div>
-        </div>
-        <button id="hl-close-btn" onclick="closeHlModal()">✕ ЗАКРЫТЬ</button>
-      </div>
-      <div id="hl-modal-videos"></div>
-    </div>
-  </div>
-
   <!-- HIGHLIGHTS -->
   <section id="highlights">
     <div class="section-header">
@@ -1732,27 +1533,42 @@
       <h2 class="section-title">ХАЙЛАЙТЫ</h2>
       <div class="section-line"></div>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; max-width:900px; margin:0 auto; padding:0 2rem 4rem;">
+    <div class="highlights-grid">
 
-      <!-- 27theory -->
-      <div class="hl-player-card" onclick="openHlModal('27theory')">
-        <img src="https://raw.githubusercontent.com/27theory/spermateam/main/img/theory.jpg" class="hl-avatar"/>
-        <div class="hl-nick">27THEORY</div>
-        <div class="hl-count" id="hl-count-27theory">1 ХАЙЛАЙТ</div>
+      <div class="highlight-card">
+        <div class="highlight-video">
+          <video controls preload="none" style="width:100%;height:100%;position:absolute;inset:0;object-fit:cover;">
+            <source src="https://raw.githubusercontent.com/27theory/spermateam/main/vids/27theory.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="highlight-info">
+          <div class="highlight-player-tag">// 27THEORY</div>
+          <div class="highlight-title">ХАЙЛАЙТ</div>
+        </div>
       </div>
 
-      <!-- varyda -->
-      <div class="hl-player-card" onclick="openHlModal('varyda')">
-        <img src="https://raw.githubusercontent.com/27theory/spermateam/main/img/varyda.jpg" class="hl-avatar"/>
-        <div class="hl-nick">VARYDA</div>
-        <div class="hl-count" id="hl-count-varyda">1 ХАЙЛАЙТ</div>
+      <div class="highlight-card">
+        <div class="highlight-video">
+          <video controls preload="none" style="width:100%;height:100%;position:absolute;inset:0;object-fit:cover;">
+            <source src="https://raw.githubusercontent.com/27theory/spermateam/main/vids/varyda.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="highlight-info">
+          <div class="highlight-player-tag">// VARYDA</div>
+          <div class="highlight-title">ХАЙЛАЙТ</div>
+        </div>
       </div>
 
-      <!-- mzombi3 -->
-      <div class="hl-player-card" onclick="openHlModal('mzombi3')">
-        <img src="https://raw.githubusercontent.com/27theory/spermateam/main/img/zombi.jpg" class="hl-avatar"/>
-        <div class="hl-nick">MZOMBI3</div>
-        <div class="hl-count" id="hl-count-mzombi3">1 ХАЙЛАЙТ</div>
+      <div class="highlight-card">
+        <div class="highlight-video">
+          <video controls preload="none" style="width:100%;height:100%;position:absolute;inset:0;object-fit:cover;">
+            <source src="https://raw.githubusercontent.com/27theory/spermateam/main/vids/zombi.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="highlight-info">
+          <div class="highlight-player-tag">// МАРМЕЛАДНЫЙ ЗОМБИ</div>
+          <div class="highlight-title">ХАЙЛАЙТ</div>
+        </div>
       </div>
 
     </div>
@@ -2055,44 +1871,7 @@
       document.body.style.overflow = '';
     }
 
-    // highlights modal
-    const hlData = {
-      '27theory': {
-        name: '27THEORY', tag: '// ENTRY FRAGGER',
-        videos: [{ label: 'ХАЙЛАЙТ #1', src: 'https://raw.githubusercontent.com/27theory/spermateam/main/vids/27theory.mp4' }]
-      },
-      'varyda': {
-        name: 'VARYDA', tag: '// AWP / IGL',
-        videos: [{ label: 'ХАЙЛАЙТ #1', src: 'https://raw.githubusercontent.com/27theory/spermateam/main/vids/varyda.mp4' }]
-      },
-      'mzombi3': {
-        name: 'MZOMBI3', tag: '// RIFLER',
-        videos: [{ label: 'ХАЙЛАЙТ #1', src: 'https://raw.githubusercontent.com/27theory/spermateam/main/vids/zombi.mp4' }]
-      },
-    };
-    function openHlModal(key) {
-      const d = hlData[key]; if (!d) return;
-      document.getElementById('hl-modal-tag').textContent = d.tag;
-      document.getElementById('hl-modal-name').textContent = d.name;
-      const container = document.getElementById('hl-modal-videos');
-      container.innerHTML = '';
-      d.videos.forEach(v => {
-        const block = document.createElement('div');
-        block.className = 'hl-video-block';
-        block.innerHTML = `<div class="hl-video-label">${v.label}</div><video controls preload="none"><source src="${v.src}" type="video/mp4"></video>`;
-        container.appendChild(block);
-      });
-      document.getElementById('hl-modal').classList.add('hl-open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeHlModal() {
-      const m = document.getElementById('hl-modal');
-      m.classList.remove('hl-open');
-      m.querySelectorAll('video').forEach(v => v.pause());
-      document.body.style.overflow = '';
-    }
-
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal({}); closeMenu(); closeHlModal(); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal({}); closeMenu(); } });
 
     // terminal typing animation
     function typeText(elId, text, speed, cb) {
